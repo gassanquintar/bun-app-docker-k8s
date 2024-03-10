@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bun-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bun-app
+  template:
+    metadata:
+      labels:
+        app: bun-app
+    spec:
+      containers:
+        - name: bun-app-container
+          image: gassanquintar/bun-app:latest
+          ports:
+            - containerPort: 3000
